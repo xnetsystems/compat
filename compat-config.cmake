@@ -1,7 +1,7 @@
 if(NOT TARGET compat::compat)
   add_library(compat::compat INTERFACE IMPORTED)
   set_target_properties(compat::compat PROPERTIES
-    INTERFACE_LINK_LIBRARIES "$<$<PLATFORM_ID:Windows>:ws2_32>$<$<CXX_COMPILER_ID:Clang>:c++fs>")
+    INTERFACE_LINK_LIBRARIES "$<$<PLATFORM_ID:Windows>:ws2_32>")
   set_target_properties(compat::compat PROPERTIES
     INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_CURRENT_LIST_DIR}/../../include")
   if(MSVC)

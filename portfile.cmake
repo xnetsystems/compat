@@ -1,4 +1,3 @@
-#header-only library
 include(vcpkg_common_functions)
 
 vcpkg_from_github(
@@ -9,16 +8,11 @@ vcpkg_from_github(
     HEAD_REF master
 )
 
-# Handle copyright.
 file(INSTALL ${SOURCE_PATH}/LICENSE_1_0.txt DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)
 
-# Copy the Networking TS implementation.
 file(INSTALL ${SOURCE_PATH}/include/experimental/__net_ts
   DESTINATION ${CURRENT_PACKAGES_DIR}/include/experimental
   FILES_MATCHING PATTERN "*.hpp" PATTERN "*.ipp")
 
-# Copy the compatibility headers.
 file(INSTALL ${CURRENT_PORT_DIR}/include DESTINATION ${CURRENT_PACKAGES_DIR})
-
-# Copy CMake config.
 file(INSTALL ${CURRENT_PORT_DIR}/compat-config.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/compat)
