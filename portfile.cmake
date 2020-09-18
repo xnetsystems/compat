@@ -6,11 +6,11 @@ vcpkg_from_github(
     HEAD_REF master
 )
 
-file(INSTALL ${SOURCE_PATH}/LICENSE_1_0.txt DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)
+file(COPY ${CURRENT_PORT_DIR}/include DESTINATION ${CURRENT_PACKAGES_DIR})
 
-file(INSTALL ${SOURCE_PATH}/include/experimental/__net_ts
+file(COPY ${SOURCE_PATH}/include/experimental/__net_ts
   DESTINATION ${CURRENT_PACKAGES_DIR}/include/experimental
   FILES_MATCHING PATTERN "*.hpp" PATTERN "*.ipp")
 
-file(INSTALL ${CURRENT_PORT_DIR}/include DESTINATION ${CURRENT_PACKAGES_DIR})
 file(INSTALL ${CURRENT_PORT_DIR}/compat-config.cmake DESTINATION ${CURRENT_PACKAGES_DIR}/share/compat)
+file(INSTALL ${SOURCE_PATH}/LICENSE_1_0.txt DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)
